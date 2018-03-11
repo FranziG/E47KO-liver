@@ -1,7 +1,7 @@
 # E47KO-liver
-Bioinformatic analysis for RNA-Seq and ChIP-Seq performed in Hemmer et al. 2018
+## Bioinformatic analysis for RNA-Seq and ChIP-Seq performed in Hemmer et al. 2018
 
-Files
+### Files
 
 - bash scripts used for mapping, peak calling and motif enrichment of ChIP-Seq data
     1. 2018_3_Hemmer_ChIP-Seq_E2A_bash.txt
