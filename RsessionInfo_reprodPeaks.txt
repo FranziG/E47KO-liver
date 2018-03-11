@@ -1,0 +1,54 @@
+#R session information for reprodPeaks.R
+
+R version 3.4.3 (2017-11-30)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 7 x64 (build 7601) Service Pack 1
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=German_Germany.1252  LC_CTYPE=German_Germany.1252    LC_MONETARY=German_Germany.1252 LC_NUMERIC=C                   
+[5] LC_TIME=German_Germany.1252    
+
+attached base packages:
+ [1] grid      parallel  stats4    stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] GenomicFeatures_1.30.0 AnnotationDbi_1.40.0   Biobase_2.38.0         ChIPseeker_1.14.1      ChIPpeakAnno_3.12.4    VennDiagram_1.6.18    
+ [7] futile.logger_1.4.3    Biostrings_2.46.0      XVector_0.18.0         GenomicRanges_1.30.0   GenomeInfoDb_1.14.0    IRanges_2.12.0        
+[13] S4Vectors_0.16.0       BiocGenerics_0.24.0   
+
+loaded via a namespace (and not attached):
+ [1] ProtGenerics_1.10.0                     bitops_1.0-6                            matrixStats_0.53.0                     
+ [4] bit64_0.9-7                             RColorBrewer_1.1-2                      progress_1.1.2                         
+ [7] httr_1.3.1                              UpSetR_1.3.3                            tools_3.4.3                            
+[10] R6_2.2.2                                KernSmooth_2.23-15                      DBI_0.7                                
+[13] lazyeval_0.2.1                          colorspace_1.3-2                        ade4_1.7-10                            
+[16] gridExtra_2.3                           prettyunits_1.0.2                       RMySQL_0.10.13                         
+[19] bit_1.1-12                              curl_3.1                                compiler_3.4.3                         
+[22] graph_1.56.0                            DelayedArray_0.4.1                      rtracklayer_1.38.3                     
+[25] caTools_1.17.1                          scales_0.5.0                            RBGL_1.54.0                            
+[28] stringr_1.2.0                           digest_0.6.14                           Rsamtools_1.30.0                       
+[31] DOSE_3.4.0                              pkgconfig_2.0.1                         htmltools_0.3.6                        
+[34] plotrix_3.7                             ensembldb_2.2.0                         limma_3.34.6                           
+[37] BSgenome_1.46.0                         regioneR_1.10.0                         rlang_0.1.6                            
+[40] RSQLite_2.0                             BiocInstaller_1.28.0                    shiny_1.0.5                            
+[43] bindr_0.1                               TxDb.Hsapiens.UCSC.hg19.knownGene_3.2.2 gtools_3.5.0                           
+[46] BiocParallel_1.12.0                     dplyr_0.7.4                             GOSemSim_2.4.0                         
+[49] RCurl_1.95-4.10                         magrittr_1.5                            GO.db_3.5.0                            
+[52] GenomeInfoDbData_1.0.0                  Matrix_1.2-12                           Rcpp_0.12.15                           
+[55] munsell_0.4.3                           stringi_1.1.6                           yaml_2.1.16                            
+[58] MASS_7.3-47                             SummarizedExperiment_1.8.1              zlibbioc_1.24.0                        
+[61] gplots_3.0.1                            qvalue_2.10.0                           plyr_1.8.4                             
+[64] AnnotationHub_2.10.1                    blob_1.1.0                              gdata_2.18.0                           
+[67] DO.db_2.9                               lattice_0.20-35                         splines_3.4.3                          
+[70] multtest_2.34.0                         pillar_1.1.0                            igraph_1.1.2                           
+[73] fgsea_1.4.1                             boot_1.3-20                             seqinr_3.4-5                           
+[76] reshape2_1.4.3                          biomaRt_2.34.2                          futile.options_1.0.0                   
+[79] fastmatch_1.1-0                         glue_1.2.0                              XML_3.98-1.9                           
+[82] lambda.r_1.2                            data.table_1.10.4-3                     idr_1.2                                
+[85] httpuv_1.3.5                            gtable_0.2.0                            assertthat_0.2.0                       
+[88] ggplot2_2.2.1                           gridBase_0.4-7                          mime_0.5                               
+[91] xtable_1.8-2                            AnnotationFilter_1.2.0                  survival_2.41-3                        
+[94] tibble_1.4.2                            rvcheck_0.0.9                           GenomicAlignments_1.14.1               
+[97] memoise_1.1.0                           bindrcpp_0.2                            interactiveDisplayBase_1.16.0   
