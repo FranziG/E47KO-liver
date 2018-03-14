@@ -8,7 +8,7 @@ library("dplyr")
 
 # data preprocessing: make count table. The raw count data is diposited at GEO under the accession GSE.
 
-# 1. read STAR count files: 1st column: gene ID (UCSC), 2nd column: counts for both strands, 3rd: 5´-->3´counts; 4th: 3`-->5`counts
+# 1. read STAR count files: 1st column: gene ID (UCSC), 2nd column: counts for both strands, 3rd: 5Â´-->3Â´counts; 4th: 3`-->5`counts
 GAR293<-read.table("./WAT_Dex_E47KO_694_GAR0293_mm10_STAR_count.txt", header=FALSE, sep="\t")
 GAR293<-GAR293[c(1:(nrow(GAR293)-5)),]
 GAR295<-read.table("./WAT_Dex_E47KO_755_GAR0295_mm10_STAR_count.txt", header=FALSE, sep="\t")
@@ -55,11 +55,15 @@ mart <- useMart(biomart = "ensembl", dataset = "mmusculus_gene_ensembl")
 res$ensembl<-rownames(res)
 symbol<-getBM(c("mgi_symbol","entrezgene","ensembl_gene_id"),"ensembl_gene_id", res$ensembl, mart)
 res<-merge(res,symbol,by.x="ensembl",by.y="ensembl_gene_id")
+#add normalized counts to results table
 counts2<-DESeq2::counts(cds,normalized=TRUE)
 counts2<-cbind(counts2,ensembl=rownames(counts2))
 res<-merge(counts2,res,by="ensembl")
+#remove genes that have NA for log2FC and adjP
 res_f<-res[!is.na(res$log2FoldChange)&!is.na(res$padj),]
+#sort differential expressed genes by log2FC in descending order
 res_f<-arrange(res_f,desc(abs(log2FoldChange)))
+#remove duplicated entries (By sorting data first, we remove the once with lower fold change)
 res_f<-res_f[!duplicated(res_f$mgi_symbol),]
 
 # write results to table. These data is published as processed data along with the raw counts on the NCBI Gene Omnibus with the accession number GSE.
