@@ -1,0 +1,36 @@
+#Comparison of RNA expression in epididymal white adipose tissue (WAT) from total E47KO animals and wt male animals that died after been fasted for 16hrs and GTT
+
+#cognated raw fasq files are deposited at GEO GSE
+
+#samples
+
+	GAR0292
+	GAR0293
+	GAR0294
+	GAR0295
+
+#1. quality control: FastQC v0.10.1 (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0292_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0292_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0293_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0293_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0294_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0294_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0295_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0295_R2.fq
+
+
+#2. mapping to mm10 reference genome using STAR aligner version 2.4.2a ("STAR: ultrafast universal RNA-seq aligner"; Alexander Dobin,1,* Carrie A. Davis, Felix Schlesinger, Jorg Drenkow, Chris Zaleski, Sonali Jha, Philippe Batut, Mark Chaisson, and Thomas R. Gingeras; Bioinformatics. 2013 Jan; 29(1): 15–21; PMCID: PMC3530905) and genome assembly GRCm38.p5 version 91.38 from Ensembl (Bronwen L. Aken, Premanand Achuthan, Wasiu Akanni, M. Ridwan Amode, Friederike Bernsdorff, Jyothish Bhai, Konstantinos Billis, Denise Carvalho-Silva, Carla Cummins, Peter Clapham, Laurent Gil, Carlos García Girón, Leo Gordon, Thibaut Hourlier, Sarah E. Hunt, Sophie H. Janacek, Thomas Juettemann, Stephen Keenan, Matthew R. Laird, Ilias Lavidas, Thomas Maurel, William McLaren, Benjamin Moore, Daniel N. Murphy, Rishi Nag, Victoria Newman, Michael Nuhn, Chuang Kee Ong, Anne Parker, Mateus Patricio, Harpreet Singh Riat, Daniel Sheppard, Helen Sparrow, Kieron Taylor, Anja Thormann, Alessandro Vullo, Brandon Walts, Steven P. Wilder, Amonida Zadissa, Myrto Kostadima, Fergal J. Martin, Matthieu Muffato, Emily Perry, Magali Ruffier, Daniel M. Staines, Stephen J. Trevanion, Fiona Cunningham, Andrew Yates, Daniel R. Zerbino, Paul Flicek.;Ensembl 2017.;Nucleic Acids Res. 2017 45 Database issue:D635-D642.;PubMed PMID: 27899575; PubMed CentralPMCID: PMC5210575.; doi:10.1093/nar/gkw1104) ; The gene annotation data was obtained from Gencode (Mudge JM and Harrow J; Mammalian genome : official journal of the International Mammalian Genome Society 2015;26;9-10;366-78; PUBMED: 26187010; PMC: 4602055; DOI: 10.1007/s00335-015-9583-x). The version used was GENCODE M16. Counts covering exons were count with HTSeq-count version 0.7.0 in a non-stranded setting. (S Anders, T P Pyl, W Huber: HTSeq — A Python framework to work with high-throughput sequencing data. bioRxiv 2014. doi: 10.1101/002824).
+
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0292_R1.fq /home/manager/Desktop/sf_shared/GAR0292_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/WAT_Dex_wt_693_GAR0292_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000;\
+htseq-count -f sam -m union --stranded=no /home/manager/Desktop/sf_shared/STAR/WAT_Dex_wt_693_GAR0292_mm10_STARAligned.out.sam /home/manager/Desktop/sf_shared/mm10_data/Mus_musculus.GRCm38.81.gtf > /home/manager/Desktop/sf_shared/STAR/WAT_Dex_wt_693_GAR0292_mm10_STAR_count.txt)
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0293_R1.fq /home/manager/Desktop/sf_shared/GAR0293_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/WAT_Dex_E47KO_694_GAR0293_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000;\
+htseq-count -f sam -m union --stranded=no /home/manager/Desktop/sf_shared/STAR/WAT_Dex_E47KO_694_GAR0293_mm10_STARAligned.out.sam /home/manager/Desktop/sf_shared/mm10_data/Mus_musculus.GRCm38.81.gtf > /home/manager/Desktop/sf_shared/STAR/WAT_Dex_E47KO_694_GAR0293_mm10_STAR_count.txt)
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0294_R1.fq /home/manager/Desktop/sf_shared/GAR0294_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/WAT_Dex_wt_753_GAR0294_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000;\
+htseq-count -f sam -m union --stranded=no /home/manager/Desktop/sf_shared/STAR/WAT_Dex_wt_753_GAR0294_mm10_STARAligned.out.sam /home/manager/Desktop/sf_shared/mm10_data/Mus_musculus.GRCm38.81.gtf > /home/manager/Desktop/sf_shared/STAR/WAT_Dex_wt_753_GAR0294_mm10_STAR_count.txt)
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0295_R1.fq /home/manager/Desktop/sf_shared/GAR0295_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/WAT_Dex_E47KO_755_GAR0295_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000;\
+htseq-count -f sam -m union --stranded=no /home/manager/Desktop/sf_shared/STAR/WAT_Dex_E47KO_755_GAR0295_mm10_STARAligned.out.sam /home/manager/Desktop/sf_shared/mm10_data/Mus_musculus.GRCm38.81.gtf > /home/manager/Desktop/sf_shared/STAR/WAT_Dex_E47KO_755_GAR0295_mm10_STAR_count.txt)
+
+#3. ._STAR_count.txt of the STAR output was used as input raw count data for data analysis wit R (see Differential_WAT.R).
+The raw count data is deposited at GEO GSE.
