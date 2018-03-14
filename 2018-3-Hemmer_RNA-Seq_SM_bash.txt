@@ -1,4 +1,4 @@
-#Comparison of RNA expression in skeletal muscle/quadricepts (SM) from total E47KO animals and wt male animals that died after been fasted for 16hrs and GTT
+#Comparison of RNA expression in skeletal muscle/quadricepts (SM) from total E47KO animals and wt male animals treated 3-weeks with dexamethason via the drinking water. These mice died after been fasted for 16hrs and GTT.
 
 #cognated raw fasq files are deposited at GEO GSE
 
