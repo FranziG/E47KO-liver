@@ -25,6 +25,7 @@ The aim of this study was to analyze the interplay of the transcription factors 
     (2) 2018-3-Hemmer_RNA-Seq_WAT_bash.txt
     (3) 2018-3-Hemmer_RNA-Seq_SM_bash.txt
     (4) 2018-3-Hemmer_RNA-Seq_longtermDex_commands.txt
+    (5) 2018-3-Hemmer_RNA-Seq_longtermCort_commands.txt
     (6) 2018-3-Hemmer_RNA-Seq_shorttermDex_commands.txt
     (7) 2017-3-Hemmer_RNA-Seq_untreated_bash.txt 
 
@@ -33,5 +34,6 @@ The aim of this study was to analyze the interplay of the transcription factors 
     (2) Differential_WAT.R and Differential_WAT_RsessionInfo.txt
     (3) Differential_SM.R and Differential_SM_RsessionInfo.txt
     (4) Differential_liver_longtermDex.R and Differential_liver_longtermDex_RsessionInfo.txt
+    (5) Differential_liver_longtermCort.R and Differential_liver_longtermCort_RsessionInfo.txt
     (6) Differential_liver_shorttermDex.R and Differential_liver_shorttermDex_RsessionInfo.txt
     (7) Differential_untreated.R and Differential_untreated_RsessionInfo.txt
