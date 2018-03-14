@@ -12,13 +12,16 @@ The aim of this study was to analyze the interplay of the transcription factors 
 ### Files
 
 (1) bash scripts used for mapping, peak calling and motif enrichment of ChIP-Seq data
+
     1. 2018_3_Hemmer_ChIP-Seq_E2A_bash.txt
     2. 2018_3_Hemmer_ChIP-Seq_GR_bash.txt
 
 (1) R scripts used to analyze the ChIP-Seq data with the corresponding R session information
+
     1. reprodPeaks.R and RsessionInfo_reprodPeaks.txt
     
 - bash scripts used for mapping and counting of RNA-Seq data
+
     (8) 2017-3-Hemmer_RNA-Seq_untreated_bash.txt 
 
 - R scripts used to analyze the ChIP-Seq data with the corresponding R session information
