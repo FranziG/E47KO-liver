@@ -22,8 +22,10 @@ The aim of this study was to analyze the interplay of the transcription factors 
     
 (2)-(8) bash scripts used for mapping and counting of RNA-Seq data
 
+    (2) 
     (8) 2017-3-Hemmer_RNA-Seq_untreated_bash.txt 
 
 (2)-(8) R scripts used to analyze the RNA-Seq data with the corresponding R session information
     
+    (2) Differential_WAT.R and Differential_WAT_RsessionInfo.txt
     (8) Differential_untreated.R and Differential_untreated_RsessionInfo.txt
