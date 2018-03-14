@@ -24,4 +24,6 @@ The aim of this study was to analyze the interplay of the transcription factors 
 
     (8) 2017-3-Hemmer_RNA-Seq_untreated_bash.txt 
 
-- R scripts used to analyze the RNA-Seq data with the corresponding R session information
+(2)-(8) R scripts used to analyze the RNA-Seq data with the corresponding R session information
+    
+    (8) Differential_untreated.R and Differential_untreated_RsessionInfo.txt
