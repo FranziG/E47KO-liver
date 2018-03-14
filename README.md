@@ -20,8 +20,8 @@ The aim of this study was to analyze the interplay of the transcription factors 
 
     1. reprodPeaks.R and RsessionInfo_reprodPeaks.txt
     
-- bash scripts used for mapping and counting of RNA-Seq data
+(2)-(8) bash scripts used for mapping and counting of RNA-Seq data
 
     (8) 2017-3-Hemmer_RNA-Seq_untreated_bash.txt 
 
-- R scripts used to analyze the ChIP-Seq data with the corresponding R session information
+- R scripts used to analyze the RNA-Seq data with the corresponding R session information
