@@ -1,0 +1,65 @@
+#Comparison of RNA expression in liver tissue from total E47KO animals and wt male animals treated with corticosteron via the drinking water. The mice were fasted 16hrs and sacrificed after GTT.
+
+#cognated raw fastq files are deposited at GEO GSE
+
+#samples
+	GAR0886		wildtype
+	GAR0887		total E47KO
+	GAR0888		total E47KO
+	GAR0890		wildtype
+	GAR0891		total E47KO
+	GAR0892		total E47KO
+	GAR0893		wildtype
+	GAR0894		wildtype
+
+#1. cognate files
+
+cat /home/manager/Desktop/sf_shared/GAR0886_S19_L001_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0886_S19_L002_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0886_S19_L003_R1_001.fastq > /home/manager/Desktop/sf_shared/GAR0886_R1.fq
+cat /home/manager/Desktop/sf_shared/GAR0886_S19_L001_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0886_S19_L002_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0886_S19_L003_R2_001.fastq > /home/manager/Desktop/sf_shared/GAR0886_R2.fq
+cat /home/manager/Desktop/sf_shared/GAR0887_S20_L001_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0887_S20_L002_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0887_S20_L003_R1_001.fastq > /home/manager/Desktop/sf_shared/GAR0887_R1.fq
+cat /home/manager/Desktop/sf_shared/GAR0887_S20_L001_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0887_S20_L002_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0887_S20_L003_R2_001.fastq > /home/manager/Desktop/sf_shared/GAR0887_R2.fq
+cat /home/manager/Desktop/sf_shared/GAR0888_S21_L001_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0888_S21_L002_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0888_S21_L003_R1_001.fastq > /home/manager/Desktop/sf_shared/GAR0888_R1.fq
+cat /home/manager/Desktop/sf_shared/GAR0888_S21_L001_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0888_S21_L002_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0888_S21_L003_R2_001.fastq > /home/manager/Desktop/sf_shared/GAR0888_R2.fq
+cat /home/manager/Desktop/sf_shared/GAR0890_S23_L004_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0890_S23_L005_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0890_S23_L006_R1_001.fastq > /home/manager/Desktop/sf_shared/GAR0890_R1.fq
+cat /home/manager/Desktop/sf_shared/GAR0890_S23_L004_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0890_S23_L005_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0890_S23_L006_R2_001.fastq > /home/manager/Desktop/sf_shared/GAR0890_R2.fq
+cat /home/manager/Desktop/sf_shared/GAR0891_S24_L004_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0891_S24_L005_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0891_S24_L006_R1_001.fastq > /home/manager/Desktop/sf_shared/GAR0891_R1.fq
+cat /home/manager/Desktop/sf_shared/GAR0891_S24_L004_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0891_S24_L005_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0891_S24_L006_R2_001.fastq > /home/manager/Desktop/sf_shared/GAR0891_R2.fq
+cat /home/manager/Desktop/sf_shared/GAR0892_S25_L004_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0892_S25_L005_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0892_S25_L006_R1_001.fastq > /home/manager/Desktop/sf_shared/GAR0892_R1.fq
+cat /home/manager/Desktop/sf_shared/GAR0892_S25_L004_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0892_S25_L005_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0892_S25_L006_R2_001.fastq > /home/manager/Desktop/sf_shared/GAR0892_R2.fq
+cat /home/manager/Desktop/sf_shared/GAR0893_S26_L004_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0893_S26_L005_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0893_S26_L006_R1_001.fastq > /home/manager/Desktop/sf_shared/GAR0893_R1.fq
+cat /home/manager/Desktop/sf_shared/GAR0893_S26_L004_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0893_S26_L005_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0893_S26_L006_R2_001.fastq > /home/manager/Desktop/sf_shared/GAR0893_R2.fq
+cat /home/manager/Desktop/sf_shared/GAR0894_S27_L004_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0894_S27_L005_R1_001.fastq /home/manager/Desktop/sf_shared/GAR0894_S27_L006_R1_001.fastq > /home/manager/Desktop/sf_shared/GAR0894_R1.fq
+cat /home/manager/Desktop/sf_shared/GAR0894_S27_L004_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0894_S27_L005_R2_001.fastq /home/manager/Desktop/sf_shared/GAR0894_S27_L006_R2_001.fastq > /home/manager/Desktop/sf_shared/GAR0894_R2.fq
+
+#2. quality control: FastQC v0.10.1 (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0886_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0886_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0887_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0887_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0888_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0888_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0890_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0890_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0891_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0891_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0892_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0892_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0893_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0893_R2.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0894_R1.fq
+fastqc -o /home/manager/Desktop/sf_shared/fastqc /home/manager/Desktop/sf_shared/GAR0894_R2.fq
+
+#3. mapping to mm10 reference genome and counting of exon spanning reads using STAR aligner version 2.4.2a ("STAR: ultrafast universal RNA-seq aligner"; Alexander Dobin,1,* Carrie A. Davis, Felix Schlesinger, Jorg Drenkow, Chris Zaleski, Sonali Jha, Philippe Batut, Mark Chaisson, and Thomas R. Gingeras; Bioinformatics. 2013 Jan; 29(1): 15–21; PMCID: PMC3530905) and genome assembly GRCm38.p5 version 91.38 from Ensembl (Bronwen L. Aken, Premanand Achuthan, Wasiu Akanni, M. Ridwan Amode, Friederike Bernsdorff, Jyothish Bhai, Konstantinos Billis, Denise Carvalho-Silva, Carla Cummins, Peter Clapham, Laurent Gil, Carlos García Girón, Leo Gordon, Thibaut Hourlier, Sarah E. Hunt, Sophie H. Janacek, Thomas Juettemann, Stephen Keenan, Matthew R. Laird, Ilias Lavidas, Thomas Maurel, William McLaren, Benjamin Moore, Daniel N. Murphy, Rishi Nag, Victoria Newman, Michael Nuhn, Chuang Kee Ong, Anne Parker, Mateus Patricio, Harpreet Singh Riat, Daniel Sheppard, Helen Sparrow, Kieron Taylor, Anja Thormann, Alessandro Vullo, Brandon Walts, Steven P. Wilder, Amonida Zadissa, Myrto Kostadima, Fergal J. Martin, Matthieu Muffato, Emily Perry, Magali Ruffier, Daniel M. Staines, Stephen J. Trevanion, Fiona Cunningham, Andrew Yates, Daniel R. Zerbino, Paul Flicek.;Ensembl 2017.;Nucleic Acids Res. 2017 45 Database issue:D635-D642.;PubMed PMID: 27899575; PubMed CentralPMCID: PMC5210575.; doi:10.1093/nar/gkw1104) ; The gene annotation data was obtained from Gencode (Mudge JM and Harrow J; Mammalian genome : official journal of the International Mammalian Genome Society 2015;26;9-10;366-78; PUBMED: 26187010; PMC: 4602055; DOI: 10.1007/s00335-015-9583-x). The version used was GENCODE M16. 
+
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0886_R1.fq /home/manager/Desktop/sf_shared/GAR0886_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/GAR0886_liver_cort_E47wt_No2_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000 --quantMode GeneCounts
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0887_R1.fq /home/manager/Desktop/sf_shared/GAR0887_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/GAR0887_liver_cort_E47KO_No3_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000 --quantMode GeneCounts
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0888_R1.fq /home/manager/Desktop/sf_shared/GAR0888_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/GAR0888_liver_cort_E47KO_No15_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000 --quantMode GeneCounts
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0890_R1.fq /home/manager/Desktop/sf_shared/GAR0890_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/GAR0890_liver_cort_E47wt_No195_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000 --quantMode GeneCounts
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0891_R1.fq /home/manager/Desktop/sf_shared/GAR0891_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/GAR0891_liver_cort_E47KO_No197_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000 --quantMode GeneCounts
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0892_R1.fq /home/manager/Desktop/sf_shared/GAR0892_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/GAR0892_liver_cort_E47KO_No199_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000 --quantMode GeneCounts
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0893_R1.fq /home/manager/Desktop/sf_shared/GAR0893_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/GAR0893_liver_cort_E47wt_No202_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000 --quantMode GeneCounts
+/home/manager/Documents/STAR-STAR_2.4.2a/source/STAR --runThreadN 12 --runMode alignReads --genomeDir /home/manager/Desktop/sf_shared/mm10_data/genomeDir_STAR --readFilesIn /home/manager/Desktop/sf_shared/GAR0894_R1.fq /home/manager/Desktop/sf_shared/GAR0894_R2.fq --outFileNamePrefix  /home/manager/Desktop/sf_shared/STAR/GAR0894_liver_cort_E47wt_No203_mm10_STAR --outFilterType BySJout --outFilterMultimapNmax 20 --alignSJoverhangMin 8 -- alignSJDBoverhangMin 1 --outFilterMismatchNmax 999 --outFilterMismatchNoverLmax 0.04 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 100000 --quantMode GeneCounts
+
+#4. ._STARReadsPerGene.out.tab of the STAR output was used as input raw count data for data analysis wit R (see Differential_liver_longtermCort.R).
+The raw count data is deposited at GEO GSE
