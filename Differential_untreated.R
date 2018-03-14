@@ -8,7 +8,7 @@ library("dplyr")
 
 # data preprocessing: make count table. The raw count data is diposited at GEO under the accession GSE.
 
-# 1. read STAR count files: 1st column: gene ID (UCSC), 2nd column: counts for both strands, 3rd: 5´-->3´counts; 4th: 3`-->5`counts
+# 1. read STAR count files: 1st column: gene ID (UCSC), 2nd column: counts for both strands, 3rd: 5Â´-->3Â´counts; 4th: 3`-->5`counts
 GAR1479<-read.table("./liver_E47KO_untreated_rep4_1630_GAR1479_mm10_STARReadsPerGene.out.tab", header=FALSE, sep="\t")
 GAR1479<-GAR1479[c(5:(nrow(GAR1479))),]
 GAR1480<-read.table("./liver_E4wt_untreated_rep4_1632_GAR1480_mm10_STARReadsPerGene.out.tab", header=FALSE, sep="\t")
@@ -32,7 +32,7 @@ GAR1574<-GAR1574[c(5:(nrow(GAR1574))),]
 GAR1575<-read.table("./liver_E47KO_untreated_No825_GAR1575_mm10_STARReadsPerGene.out.tab", header=FALSE, sep="\t")
 GAR1575<-GAR1575[c(5:(nrow(GAR1575))),]
 
-#2. genertate one table for raw countdata; We used the counts ignoring strandedness as not all RNA-Seq samples of this study were stranded.
+#2. generate one table for raw countdata; We used the counts ignoring strandedness as not all RNA-Seq samples of this study were stranded.
 counts_un<-cbind(GAR1479[,c(1,2)],GAR1480$V2,GAR1482$V2,GAR1568$V2,GAR1569$V2,GAR1570$V2,GAR1571$V2,GAR1572$V2,GAR1573$V2,GAR1574$V2,GAR1575$V2)
 rownames(counts_un)<-counts_un[,1]
 counts_un<-counts_un[,-1]
