@@ -5,7 +5,7 @@
 
 The aim of this study was to analyze the interplay of the transcription factors E47, a splice variant of E2A, and glucocorticoid receptor (GR) in the metabolic fuction of glucocorticoid signalling. To address the research aim, we performen Chromatin-Immunoprecipitation for the transcription factors E2A and GR in untreated liver tissue (1). For functional studies on E47 loss-of-function mice, we performed RNA-Seq of metabolic tissues relevent for GR signalling: epididymal white adipose tissue (WAT), skeletal muscle (SM, quadriceps) and liver. For WAT (2) and SM (3) the samples from wildtype and total E47 knock-out (E47KO) where treated with dexamethason for 3 weeks via the drinking water and killed after 16hrs fasting and GTT. For liver, we compared wildtype and total E47KO male mice after long-term (3weeks) dexamethason (4) or corticosterone treatment (5) via the drinking water. These animals were sacrificed after 16hrs fasting and GTT as well. A small study on short-term (1h) dexamethason effect on wildtype and liver-specific E47KO male mice (Albcre/+;E47fl/fl) was included to identify direct GR target genes (6). Without treatment and with ad libidum food supply, expression in wildtype and total E47KO liver tissue was analysed to exclude any basal and developmental differences in E47KO livers (7).
 
-# data accessibility via GEO
+### data accessibility via GEO
     (1) ChIP-Seq: GSE111526
     (2)-(7) RNA-Seq: 
 
