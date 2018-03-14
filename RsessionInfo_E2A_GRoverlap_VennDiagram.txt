@@ -1,0 +1,22 @@
+R version 3.4.0 (2017-04-21)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 7 x64 (build 7601) Service Pack 1
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=German_Germany.1252  LC_CTYPE=German_Germany.1252    LC_MONETARY=German_Germany.1252
+[4] LC_NUMERIC=C                    LC_TIME=German_Germany.1252    
+
+attached base packages:
+ [1] grid      parallel  stats4    stats     graphics  grDevices utils     datasets  methods  
+[10] base     
+
+other attached packages:
+[1] VennDiagram_1.6.19   futile.logger_1.4.3  GenomicRanges_1.28.6 GenomeInfoDb_1.12.3 
+[5] IRanges_2.10.5       S4Vectors_0.14.7     BiocGenerics_0.22.1 
+
+loaded via a namespace (and not attached):
+[1] bitops_1.0-6            futile.options_1.0.0    zlibbioc_1.22.0         XVector_0.16.0         
+[5] lambda.r_1.2            tools_3.4.0             RCurl_1.95-4.10         compiler_3.4.0         
+[9] GenomeInfoDbData_0.99.0
