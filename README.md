@@ -19,6 +19,7 @@ The aim of this study was to analyze the interplay of the transcription factors 
 (1) R scripts used to analyze the ChIP-Seq data with the corresponding R session information
 
     1. reprodPeaks.R and RsessionInfo_reprodPeaks.txt
+    2. E2A_GRoverlap_VennDiagram.R and RsessionInfo_E2A_GRoverlap_VennDiagram.txt
     
 (2)-(7) Commands used for mapping and counting of RNA-Seq data
 
