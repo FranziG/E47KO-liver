@@ -31,7 +31,7 @@ GAR0891<-arrange(GAR0891,V1)
 GAR0892<-read.table("./GAR0892_liver_cort_E47KO_No199_mm10_STARReadsPerGene.out.tab", header=FALSE, sep="\t",stringsAsFactors = FALSE)
 GAR0892<-GAR0892[c(5:(nrow(GAR0892))),]
 GAR0892<-arrange(GAR0892,V1)
-GAR0893<-read.table("./STAR/GAR0893_liver_cort_E47wt_No202_mm10_STARReadsPerGene.out.tab", header=FALSE, sep="\t",stringsAsFactors = FALSE)
+GAR0893<-read.table("./GAR0893_liver_cort_E47wt_No202_mm10_STARReadsPerGene.out.tab", header=FALSE, sep="\t",stringsAsFactors = FALSE)
 GAR0893<-GAR0893[c(5:(nrow(GAR0893))),]
 GAR0893<-arrange(GAR0893,V1)
 GAR0894<-read.table("./GAR0894_liver_cort_E47wt_No203_mm10_STARReadsPerGene.out.tab", header=FALSE, sep="\t",stringsAsFactors = FALSE)
@@ -90,14 +90,21 @@ res_cortOnly_indOnBatch_f<-res_cortOnly_indOnBatch_f[!duplicated(res_cortOnly_in
 
 #write results to table. These data is published as processed data along with the raw counts on the NCBI Gene Omnibus with the accession number GSE.
 
-write.table(res_cortOnly_indOnBatch_f, file="./2018-3_liver_E47Kovswt_longTermCort_unfiltered.txt",sep="\t",row.names = FALSE)
+#write.table(res_cortOnly_indOnBatch_f, file="./2018-3_liver_E47Kovswt_longTermCort_unfiltered.txt",sep="\t",row.names = FALSE)
 
-#6. Heatmap to display differential expression
+#6. Volcano plot
 
-counts_cortOnly2<-DESeq2::counts(cds_cortOnly,normalized=TRUE)
-colfunc<-colorRampPalette(colors=c("DodgerBlue2","black","red"))
-col_breaks<-c(seq(min(log2(counts_cortOnly2+1)),quantile(log2(counts_cortOnly2+1),.45),length=50),seq(quantile(log2(counts_cortOnly2+1),.46),quantile(log2(counts_cortOnly2+1),.55),length=10),seq(quantile(log2(counts_cortOnly2+1),.56),max(log2(counts_cortOnly2+1)),length=50))
-#Only use differential expressed genes with a baseMean expression above 200 counts and a significant (adjP<0.01) fold-change of 1.5.
-res_cortOnly_indOnBatch_f<-res_cortOnly_indOnBatch_f[abs(res_cortOnly_indOnBatch_f$log2FoldChange)>0.58&!duplicated(res_cortOnly_indOnBatch_f$mgi_symbol)&res_cortOnly_indOnBatch_f$padj<0.05&res_cortOnly_indOnBatch_f$baseMean>200,]
+res_cortOnly_indOnBatch_f$color_flag <- factor(ifelse(res_cortOnly_indOnBatch_f$log2FoldChange>0.38&res_cortOnly_indOnBatch_f$pvalue<0.05, 1, ifelse(res_cortOnly_indOnBatch_f$log2FoldChange<(-0.38)&res_cortOnly_indOnBatch_f$pvalue<0.05,2,0)))
 
-heatmap.2(log2(counts_cortOnly2[rownames(counts_cortOnly2)%in%res_cortOnly_indOnBatch_f$ensembl,]+1),na.rm=TRUE,scale="row",distfun = function(x) as.dist(1-cor(t(x))),trace="none",dendrogram = "none",Colv = FALSE,col=colfunc(length(col_breaks)-1), main="DE_genes\n in liver lacking E47KO after cort",cexRow=0.6,cexCol=0.6,labRow = FALSE,labCol=FALSE,margins = c(10,10))
+label<-c("Apoa4","Cyp51","Hmgcs1","Dhcr24","Apoc3","Apoc2","Cd36","Acacb","Fgf21","Cyp2c39","Cyp2a22","Cyp2b9","Hmgcr","Sqle")
+  
+library(ggrepel)
+
+ggplot(data=res_cortOnly_indOnBatch_f, aes(x=log2FoldChange, y=-log10(pvalue),col=color_flag)) +
+  geom_point(alpha=0.7, size=4) +
+  xlim(c(-6.5, 5)) + ylim(c(0, 20)) +
+  xlab("log2 fold change") + ylab("-log10 p-value")+
+  geom_text_repel(aes(label=ifelse(mgi_symbol%in%label, mgi_symbol,"")), size=5)+
+  theme_bw()+
+  scale_color_manual(values=c("grey","red","blue"))+
+  theme(legend.position = "none",panel.border = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
